@@ -8,7 +8,8 @@
   <div class="animated slideInRight delay-2s" >
   <mat-list-item *ngFor="let item of items" class="mat-app-background">
     <img matListAvatar src="{{item.owner.avatar_url}}" alt="...">
-    <h1 matLine> {{item.name}} </h1>
+    <h1 matLine > {{item.name}} </h1>
+
     <p matLine>
       <span class="demo-2">{{item.description}} </span>
     </p>
@@ -30,9 +31,11 @@
 
           <div class="demo-solution demo-solution--flexbox">
             <mat-icon class="mat-icon-rtl-mirror" svgIcon="person"></mat-icon>
-            <span>Submitted by: {{item.owner.login}}</span>
+            <span>Submitted by: {{item.owner.login}}  </span>
           </div>
-          
+
+          <a mat-button href="{{item.html_url}}" target="_blank">  Link</a>
+
         </div>
       </span>
     </p>
