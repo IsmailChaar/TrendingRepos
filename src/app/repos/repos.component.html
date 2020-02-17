@@ -1,0 +1,47 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/redkost-comic" type="text/css"/>
+</head>
+
+
+<mat-list>
+  <div class="animated slideInRight delay-2s" >
+  <mat-list-item *ngFor="let item of items" class="mat-app-background">
+    <img matListAvatar src="{{item.owner.avatar_url}}" alt="...">
+    <h1 matLine> {{item.name}} </h1>
+    <p matLine>
+      <span class="demo-2">{{item.description}} </span>
+    </p>
+
+    <p matLine>
+      <span>
+        <div class="block-div">
+
+          <div class="demo-solution demo-solution--flexbox">
+            <mat-icon class="mat-icon-rtl-mirror" svgIcon="star"></mat-icon>
+            <span>Stars: {{item.stargazers_count}}</span>
+          </div>
+
+
+          <div class="demo-solution demo-solution--flexbox">
+            <mat-icon class="mat-icon-rtl-mirror" svgIcon="flag"></mat-icon>
+            <span>Issues: {{item.open_issues_count}}</span>
+          </div>
+
+          <div class="demo-solution demo-solution--flexbox">
+            <mat-icon class="mat-icon-rtl-mirror" svgIcon="person"></mat-icon>
+            <span>Submitted by: {{item.owner.login}}</span>
+          </div>
+          
+        </div>
+      </span>
+    </p>
+
+  </mat-list-item>
+  </div>
+</mat-list>
+
+<mat-paginator [length]="length"
+               [pageSize]="pageSize"
+               (page)="onPaginateChange($event)">
+</mat-paginator>
