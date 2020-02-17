@@ -1,6 +1,6 @@
 # TrendingRepos
 
-This is a small webapp that lists the most starred Github repos created in the last 30 days. Done by me for the Gemography Front-end Coding Challenge <3 .
+This is a small webapp that lists the most starred Github repos created in the last 30 days. Done by me for the Gemography Front-end Coding Challenge :heart: .
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
 
