@@ -24,6 +24,7 @@ export class ReposComponent implements OnInit {
   // MatPaginator Output
   pageEvent: PageEvent = new PageEvent();
 
+  pageIndex = 0;
 
 
   constructor(private apiService: ApiService, private datePipe: DatePipe, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
@@ -40,25 +41,25 @@ export class ReposComponent implements OnInit {
     sanitizer.bypassSecurityTrustResourceUrl('assets/img/icons/person.svg'));
   }
 
-  ngOnInit(pageIndex : number) {
+  ngOnInit() {
     var oneMonthAgo = new Date(new Date().getFullYear(),new Date().getMonth() - 1, new Date().getDate());
     console.log(oneMonthAgo);
     console.log(this.datePipe.transform(oneMonthAgo,"yyyy-MM-dd"));
     console.log(typeof this.datePipe.transform(oneMonthAgo,"yyyy-MM-dd"));
 
-    this.apiService.getRepos(this.datePipe.transform(oneMonthAgo,"yyyy-MM-dd"),pageIndex + 1).subscribe((data)=>{
+    this.apiService.getRepos(this.datePipe.transform(oneMonthAgo,"yyyy-MM-dd"),this.pageIndex + 1).subscribe((data)=>{
 
       console.log(typeof this.items);
       console.log(data);
       this.items = data['items'];
       console.log(this.items[0].created_at);
-      console.log(daysAgo(this.items[0].created_at));
 
     });
 
   }
   onPaginateChange(event){
-    this.ngOnInit(event.pageIndex);
+    this.pageIndex=event.pageIndex;
+    this.ngOnInit();
     window.scroll(0,0);
   }
 
